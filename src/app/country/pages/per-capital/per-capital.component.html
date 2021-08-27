@@ -1,0 +1,27 @@
+<div class="animate__animated animate__zoomIn animate__fast">
+    <h2>Capital</h2>
+    <hr>
+
+    <div class="row">
+        <div class="col">
+            <app-country-input
+                (onEnter)="search($event)"
+                placeholder="Search Capital"
+            ></app-country-input>
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div *ngIf="isError">
+    <div class="alert alert-danger">
+        Capital not fount with term "{{term}}", try again
+    </div>
+    <app-error404></app-error404>
+</div>
+
+<div class="row" *ngIf="country.length > 0">
+    <div class="col">
+        <app-capital-table [country]="country"></app-capital-table>
+    </div>
+</div>
